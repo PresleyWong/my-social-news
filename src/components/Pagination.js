@@ -9,17 +9,17 @@ const Pagination = ({ pageCount, handlePageClick }) => {
       marginPagesDisplayed={2}
       pageCount={pageCount}
       previousLabel="<"
-      pageClassName="page-item"
+      pageClassName="px-2"
       pageLinkClassName="page-link waves-effect"
-      previousClassName="page-item"
+      previousClassName="px-2"
       previousLinkClassName="page-link"
-      nextClassName="page-item"
+      nextClassName="px-2"
       nextLinkClassName="page-link"
       breakLabel="..."
-      breakClassName="page-item"
+      breakClassName="px-2"
       breakLinkClassName="page-link"
-      containerClassName="pagination pagination-circle pg-info mb-0"
-      activeClassName="active"
+      containerClassName="flex justify-center"
+      activeClassName="bg-gray-600 text-white"
       renderOnZeroPageCount={null}
     />
   );

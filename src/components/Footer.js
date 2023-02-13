@@ -1,12 +1,10 @@
-import React from "react";
-
 const Footer = () => {
+  const d = new Date();
+  let year = d.getFullYear();
   return (
     <>
-      <footer className="bg-light text-center text-lg-start">
-        <div className="text-center p-3" style={{ color: `#00000033` }}>
-          © 2022 Copyright
-        </div>
+      <footer className="text-center text-gray-500 bg-gray-200 py-3 mt-5">
+        <div>© {year} Copyright</div>
       </footer>
     </>
   );

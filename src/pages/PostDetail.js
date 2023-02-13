@@ -7,14 +7,14 @@ import { Link } from "react-router-dom";
 
 export const CommentListing = ({ comments }) => {
   const output = comments.map((item, index) => (
-    <div className="d-flex mb-3" key={index}>
+    <div className="flex mb-3" key={index}>
       <Link to={`/user/${item.user.id}`}>
-        <UserImage userId={item.user.id} imageHeight={65} />
+        <UserImage userId={item.user.id} styleClass="h-12" />
       </Link>
 
       <div>
         <div className="bg-light rounded-3 px-3 py-1">
-          <Link to={`/user/${item.user.id}`} className="text-dark mb-0">
+          <Link to={`/user/${item.user.id}`} className="underline">
             <strong>{item.user.username}</strong>
           </Link>
 
@@ -31,20 +31,19 @@ export const CommentListing = ({ comments }) => {
 export const PostContent = ({ post }) => {
   return (
     <>
-      <section>
-        <div className="card">
-          <div className="card-body">
-            <div className="d-flex mb-3">
+      <section className="rounded-lg shadow-lg p-5 border border-slate-300">
+        <div className="">
+          <div className="mb-10">
+            <div className="flex mb-2">
               <Link to={`/user/${post.userId}`}>
-                <UserImage
-                  userId={post.userId}
-                  imageHeight={50}
-                  styleClass="border rounded-circle me-2 post-avatar"
-                />
+                <UserImage userId={post.userId} styleClass="h-12 mr-2" />
               </Link>
 
               <div>
-                <Link to={`/user/${post.userId}`} className="text-dark mb-0">
+                <Link
+                  to={`/user/${post.userId}`}
+                  className="text-bold underline"
+                >
                   <strong>{post.username}</strong>
                 </Link>
 
@@ -55,25 +54,16 @@ export const PostContent = ({ post }) => {
                 </p>
               </div>
             </div>
+
             <div>
               <p>{post.body}</p>
             </div>
           </div>
-          <div
-            className="bg-image hover-overlay ripple rounded-0"
-            data-mdb-ripple-color="light"
-          >
-            <a href="#!">
-              <div className="mask"></div>
-            </a>
-          </div>
-          <div className="card-body">
-            <div className="d-flex justify-content-between mb-3">
-              <div>
-                <span className="text-muted">
-                  {`${post.comments.length} comments`}
-                </span>
-              </div>
+          <div>
+            <div className="mb-3">
+              <span className="text-gray-600">
+                {`${post.comments.length} comments`}
+              </span>
             </div>
             <CommentListing comments={post.comments} />
           </div>
