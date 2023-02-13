@@ -17,104 +17,105 @@ const Dashboard = () => {
   if (isSuccess) {
     content = (
       <>
-        <section style={{ backgroundColor: "#eee" }}>
-          <div className="container-fluid py-5">
-            <div className="row">
-              <div className="col-lg-4">
+        <section>
+          <div className="">
+            <div className="grid grid-cols-12 gap-5">
+              <div className="col-span-4">
                 <div className="card mb-4">
                   <div className="card-body text-center">
                     <img
+                      className="rounded-full"
                       src={data.image}
-                      alt={currentUser.username}
-                      className="rounded-circle img-fluid"
-                      style={{ width: "150px" }}
+                      alt={data.username}
                     />
-                    <h5 className="my-3">{currentUser.username}</h5>
-                    <p className="text-muted mb-1">{data.company.title}</p>
-                    <p className="text-muted mb-4">{`${data.address.city}, ${data.address.state}`}</p>
+
+                    <h5 className="my-3 font-bold">{data.username}</h5>
+                    <p className="text-gray-500 mb-1">{data.company.title}</p>
+                    <p className="text-gray-500 mb-4">{`${data.address.city}, ${data.address.state}`}</p>
                   </div>
                 </div>
-                <div className="card mb-4 mb-lg-0">
+
+                <div className="card mb-4">
                   <div className="card-body p-0">
-                    <ul className="list-group list-group-flush rounded-3">
-                      <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <ul>
+                      <li className="flex justify-between p-3 border-b">
                         <FontAwesomeIcon icon={["fas", "fa-droplet"]} />
-                        <p className="mb-0">{data.bloodGroup}</p>
+                        <p className="text-gray-500">{data.bloodGroup}</p>
                       </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <li className="flex justify-between p-3 border-b">
                         <FontAwesomeIcon icon={["fas", "fa-ruler-vertical"]} />
-                        <p className="mb-0">{data.height} cm</p>
+                        <p className="text-gray-500">{data.height} cm</p>
                       </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <li className="flex justify-between p-3 border-b">
                         <FontAwesomeIcon icon={["fas", "fa-weight-scale"]} />
-                        <p className="mb-0">{data.weight} kg</p>
+                        <p className="text-gray-500">{data.weight} kg</p>
                       </li>
-                      <li className="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <li className="flex justify-between p-3 border-b">
                         <FontAwesomeIcon icon={["fas", "fa-eye"]} />
-                        <p className="mb-0">{data.eyeColor}</p>
+                        <p className="text-gray-500">{data.eyeColor}</p>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-8">
+              <div className="col-span-8">
                 <div className="card mb-4">
                   <div className="card-body">
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">Full Name</p>
+                    <div className="flex justify-between p-3">
+                      <div>
+                        <p>Full Name</p>
                       </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{`${data.firstName} ${data.lastName}`}</p>
-                      </div>
-                    </div>
-                    <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">Email</p>
-                      </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{data.email}</p>
+                      <div>
+                        <p className="text-gray-500">{`${data.firstName} ${data.lastName}`}</p>
                       </div>
                     </div>
                     <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">Phone</p>
+                    <div className="flex justify-between p-3">
+                      <div>
+                        <p>Email</p>
                       </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">{data.phone}</p>
+                      <div>
+                        <p className="text-gray-500">{data.email}</p>
                       </div>
                     </div>
                     <hr />
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <p className="mb-0">Address</p>
+                    <div className="flex justify-between p-3">
+                      <div>
+                        <p>Phone</p>
                       </div>
-                      <div className="col-sm-9">
-                        <p className="text-muted mb-0">
+                      <div>
+                        <p className="text-gray-500">{data.phone}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="flex justify-between p-3">
+                      <div>
+                        <p>Address</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500">
                           {`${data.address.address}, ${data.address.city}, ${data.address.state}`}
                         </p>
                       </div>
                     </div>
 
                     <hr />
-                    <div className="row">
+                    <div className="flex justify-between p-3">
                       <div className="col-sm-3">
                         <p className="mb-0">Gender</p>
                       </div>
                       <div className="col-sm-9">
-                        <p className="text-muted mb-0">{data.gender}</p>
+                        <p className="text-gray-500">{data.gender}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="card mb-4 mb-md-0">
+                <div>
+                  <div>
+                    <div className="card mb-4">
                       <div className="card-body">
-                        <p className="mb-4">Posts History</p>
-                        <UserPosts userId={currentUser.id} />
+                        <p className="my-4">Posts History</p>
+                        <UserPosts userId={data.id} />
                       </div>
                     </div>
                   </div>
@@ -125,10 +126,10 @@ const Dashboard = () => {
         </section>
       </>
     );
-  } else if (isLoading) {
-    content = <Spinner />;
   } else if (isError) {
     content = <div>{error.toString()}</div>;
+  } else if (isLoading) {
+    content = <Spinner />;
   }
 
   return content;

@@ -18,7 +18,9 @@ export const CommentCount = ({ postId }) => {
 export const Tags = ({ tags }) =>
   tags.map((item, index) => (
     <span
-      className={"badge bg-secondary " + (index === 0 ? "" : "mx-1")}
+      className={
+        "bg-gray-600 text-white text-xs font-bold px-2 py-1 mr-2 rounded-lg"
+      }
       key={index}
     >
       {item}
@@ -28,18 +30,21 @@ export const Tags = ({ tags }) =>
 export const PostItem = ({ posts }) => {
   const postItemContent = posts.map((item, index) => {
     const mapOutput = (
-      <tr key={index}>
-        <td className="text-nowrap">
+      <tr key={index} className="border-b">
+        <td className="py-3">
           <Link to={`/user/${item.userId}`}>
-            <UserImage userId={item.userId} />
+            <UserImage userId={item.userId} styleClass={"w-20 mr-2"} />
           </Link>
         </td>
-        <td className="text-start">
-          <Link to={`/post/${item.id}`} className="font-weight-bold blue-text">
+        <td className="text-start py-3">
+          <Link
+            to={`/post/${item.id}`}
+            className="font-semibold text-blue-800 underline"
+          >
             {item.title}
           </Link>
 
-          <div className="my-2">
+          <div className="">
             <span>{item.body.substring(0, 100).concat("...")}</span>
             <div>
               <Tags tags={item.tags} />
@@ -75,15 +80,14 @@ export const PostListing = ({ posts, itemsPerPage = 7 }) => {
 
   return (
     <>
-      <div className="card d-flex">
-        <div className="card-body">
-          <table className="table-responsive"></table>
-          <table className="table table-hover table-forum text-center">
-            <thead>
+      <div>
+        <div className="card">
+          <table className="text-center">
+            <thead className="border-b">
               <tr>
-                <th></th>
-                <th className="text-left">Topic</th>
-                <th>Comments</th>
+                <th className="py-3"></th>
+                <th className="py-3">Topic</th>
+                <th className="py-3">Comments</th>
               </tr>
             </thead>
 
@@ -97,7 +101,7 @@ export const PostListing = ({ posts, itemsPerPage = 7 }) => {
       {pageCount === 1 ? (
         <span></span>
       ) : (
-        <div className="d-flex justify-content-center">
+        <div className="flex justify-center">
           <nav className="my-2 pt-2">
             <Pagination
               pageCount={pageCount}

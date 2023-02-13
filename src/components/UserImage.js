@@ -1,6 +1,7 @@
 import { useGetUserDetailQuery } from "../redux/api/userApi";
+import Spinner from "./Spinner";
 
-const UserImage = ({ userId, imageHeight = 80, styleClass = null }) => {
+const UserImage = ({ userId, styleClass }) => {
   const { data, isLoading, isSuccess, isError, error } =
     useGetUserDetailQuery(userId);
 
@@ -11,12 +12,11 @@ const UserImage = ({ userId, imageHeight = 80, styleClass = null }) => {
       <img
         src={data?.image}
         alt={userId}
-        style={{ height: `${imageHeight}px` }}
-        className={styleClass}
+        className={`border rounded-full ${styleClass}`}
       />
     );
   } else if (isLoading) {
-    content = <span className="spinner-border"></span>;
+    content = <Spinner />;
   } else if (isError) {
     content = <div>{error.toString()}</div>;
   }

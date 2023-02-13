@@ -4,13 +4,13 @@ import Footer from "./Footer";
 
 const Layout = (props) => {
   const Content = (props) => (
-    <main className="container">
+    <main className="max-w-screen-xl mx-auto">
       <>{props.children}</>
     </main>
   );
 
   return (
-    <div className="layout">
+    <div className="flex flex-col h-screen justify-between">
       <Header />
       <Content>{props.children}</Content>
       <Footer />
